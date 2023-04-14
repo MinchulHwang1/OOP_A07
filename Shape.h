@@ -22,7 +22,7 @@ using namespace std;
 ///
 /// \brief This class creates an object that get shape's name and inherit data member to Circle and Square class also it has pure virtual methods
 ///
-///
+/// 
 /// \author A <i>Minchul Hwang</i>
 ///
 
@@ -37,14 +37,14 @@ protected:
 	char colour[kColourString];					///< To Save colour of shape
 	char nameCopy[kNameString];					///< To Save copy name of shape
 	char colourCopy[kColourString];				///< To Save copy colour of shape
-	char* colourCopyPointer;
-	bool destructorValue;
+	char* colourCopyPointer;					///< To Save colour string as pointer
+	bool destructorValue;						///< To define destructor value as bool value to print destroying message
 	/* ====================================== */
 	/*              PUBLIC                    */
 	/* ====================================== */
 public:
 	/* -------------- ATTRIBUTES ------------ */
-	Shape();									///< Constructor
+	Shape();									///< Defalut Constructor
 	Shape(char* name, char* colour);			///< Constructor with 2 parameters
 
 	/* ---------- METHOD PROTOTYPES --------- */
@@ -57,9 +57,9 @@ public:
 	virtual float Area(void) = 0;				///< Virtual function to save area of shape
 	virtual float OverallDimension(void) = 0;	///< Virtual function to save dimension of shape
 
-	char* GetShapeColour(void) const;
-	void SetDestructorValue(bool destructorValue);
-	bool GetDestructorValue(void);
+	char* GetShapeColour(void) const;					///< Accessor - To get shape colour as pointer of string as const value
+	void SetDestructorValue(bool destructorValue);		///< Mutator - To set destructorValue 
+	bool GetDestructorValue(void);						///< Accessor - To get destructorValue
 };
 
 #endif _SHAPE_H_

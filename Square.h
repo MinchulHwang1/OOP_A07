@@ -32,14 +32,14 @@ class Square : public Shape {
 	/* ====================================== */
 private:
 	float sideLength;								///< To save side length of square
-	char colour[kColourSize];
-	char colourCopy[kColourSize];
+	char colour[kColourSize];						///< To save colour of square
+	char colourCopy[kColourSize];					///< To save copy of colour of square
 	/* ====================================== */
 	/*              PUBLIC                    */
 	/* ====================================== */
 public:
 	/* -------------- ATTRIBUTES ------------ */
-	Square();
+	Square();										///< Defalut Constructor
 	Square(char* colour, float sideLength);			///< Constructor with 2 parameters.
 	virtual ~Square();								///< Distructor of object
 
@@ -53,14 +53,13 @@ public:
 	virtual float Area(void);						///< Virtual function of area - it calculates area of square
 	virtual float OverallDimension(void);			///< Virtual function of dimension - side length of square
 
-	char* GetColour(void);
+	char* GetColour(void);							///< Accessor - to get colour of circle
+	float GetSideLength(void) const;				///< Accessor - to get the const value of radius of square
 
-
-	Square operator+(const Square& addSquare);
-	Square operator*(const Square& multiSquare);
-	const Square& operator=(const Square& insertSquare);
-	bool operator==(const Square& equalSquare);
-
+	Square operator+(const Square& addSquare);				///< Overload Operator - to overload operator +
+	Square operator*(const Square& multiSquare);			///< Overload Operator - to overload operator *
+	const Square& operator=(const Square& insertSquare);	///< Overload Operator - to overload operator =
+	bool operator==(const Square& equalSquare);				///< Overload Operator - to overload operator ==
 };
 
 

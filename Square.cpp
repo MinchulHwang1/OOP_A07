@@ -2,7 +2,17 @@
 
 #include"Square.h"
 
-
+/**
+* \brief Square -- Default CONSTRUCTOR
+* \details <b>Details</b>
+*
+* To instantiate a new Square object - given a set of attribute values
+* It prints nothing
+*
+* \return Nothing
+*
+* \see ~Square()
+*/
 Square::Square() {
 	sideLength = 0;
 
@@ -11,6 +21,8 @@ Square::Square() {
 	strcpy(this->colour, Shape::GetShapeColour());
 	strcpy(colourCopy, "");
 }
+
+
 /**
 * \brief Square -- CONSTRUCTOR
 * \details <b>Details</b>
@@ -133,11 +145,25 @@ float Square::OverallDimension(void) {
 	return sideLength;
 }
 
+/// \brief Accessor
+/// \details <b>Details</b>
+///
+/// To get colour of square
+/// \return Returns a colour of square
+///
 char* Square::GetColour(void) {
 	memcpy(colourCopy, colour, sizeof(colour));
 	return colourCopy;
 }
 
+/// \brief Overload Operator
+/// \details <b>Details</b>
+///
+/// This method overloaded operator +.
+/// 
+/// If user add 2 objects, result object has LHS colour and sum of sideLength
+/// \return Returns a square object which has calcualted value
+///
 Square Square::operator+(const Square& addSquare) {
 	Square temp;
 	strcpy(temp.colour, this->colour);
@@ -147,6 +173,14 @@ Square Square::operator+(const Square& addSquare) {
 	return temp;
 }
 
+/// \brief Overload Operator
+/// \details <b>Details</b>
+///
+/// This method overloaded operator *.
+/// 
+/// If user multiply 2 objects, result object has RHS colour and multiply of sideLength
+/// \return Returns a square object which has calcualted value
+///
 Square Square::operator*(const Square& multiSquare) {
 	Square temp;
 	strcpy(temp.colour, multiSquare.colour);
@@ -155,6 +189,14 @@ Square Square::operator*(const Square& multiSquare) {
 	return temp;
 }
 
+/// \brief Overload Operator
+/// \details <b>Details</b>
+///
+/// This method overloaded operator =.
+/// 
+/// If user put one object equal to another object, result object will be covered with RHS object
+/// \return Returns a this pointer which points the LHS object
+///
 const Square &Square::operator=(const Square& insertSquare) {
 ;
 	strcpy(this->colour, insertSquare.colour);
@@ -164,6 +206,14 @@ const Square &Square::operator=(const Square& insertSquare) {
 	return *this;
 }
 
+/// \brief Overload Operator
+/// \details <b>Details</b>
+///
+/// This method overloaded operator ==.
+/// 
+/// If user want to compare the object is same or not, user can use this operator
+/// \return Returns a value corresponding to a bool value
+///
 bool Square::operator==(const Square& equalSquare) {
 	if (strcmp(this->colour, equalSquare.colour) == 0) {
 		if (this->sideLength == equalSquare.sideLength) {
@@ -172,4 +222,18 @@ bool Square::operator==(const Square& equalSquare) {
 	}
 	else
 		return false;
+}
+
+
+/// \brief Accessor
+/// \details <b>Details</b>
+///
+/// Getting length and return it.
+/// 
+/// \return Returns sideLength which is side length which is gotten from user
+///
+///
+float Square::GetSideLength(void) const {
+
+	return sideLength;
 }

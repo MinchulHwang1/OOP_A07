@@ -13,7 +13,7 @@
 using namespace std;
 
 int main() {
-	Circle round1((char*)"orange", 5.5);
+	Circle round1((char*)"red", 5.5);
 	Circle round2((char*)"blue", 10.5);
 	Circle playARound;
 
@@ -33,13 +33,13 @@ int main() {
 	playARound = round1 + round2;
 	playARound.Show();
 
-	playASquare = (square1 + square2);
+	playASquare = square2 + square1;
 	playASquare.Show();
 
-	playARound = (round1 * round2);
+	playARound = round1 * round2;
 	playARound.Show();
 
-	playASquare = (square2 * square1);
+	playASquare = square2 * square1;
 	playASquare.Show();
 
 
@@ -52,6 +52,5 @@ int main() {
 	else
 		printf("Awww !! \n");
 	
-
 	return 0;
 }

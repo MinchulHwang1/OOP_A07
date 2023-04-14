@@ -17,6 +17,8 @@ Shape::Shape() {
 	strcpy(colour, "undefined");
 	strcpy(nameCopy, " ");
 	strcpy(colourCopy, " ");
+
+	destructorValue = false;
 }
 
 /**
@@ -70,6 +72,8 @@ Shape::Shape(char* name, char* colour) {
 
 	strcpy(nameCopy, " ");
 	strcpy(colourCopy, " ");
+	
+	destructorValue = false;
 }
 
 ///
@@ -155,16 +159,47 @@ void Shape::SetShapeColour(char* colour) {
 	}
 }
 
+///
+/// \brief Accessor
+/// \details <b>Details</b>
+///
+/// Getting shape colour and return copy of colour
+/// 
+/// it overriding GetShapeColour accessor and it can store value as pointer
+/// 
+/// \return Returns a string has colour of shape
+///
+///
 char* Shape::GetShapeColour(void) const {
 	strcpy(colourCopyPointer, colour);
 	
 	return colourCopyPointer;
 }
 
+///
+/// \brief Mutator
+/// \details <b>Details</b>
+///
+/// A mutator to set destructorValue as bool data type.
+/// 
+/// \param destructorValue - <b>bool *</b> - a bool value which can print destroy messsage
+/// 
+/// \return Returns Nothing
+///
+///
 void Shape::SetDestructorValue(bool destructorValue) {
 	this->destructorValue = destructorValue;
 }
 
+///
+/// \brief Accessor
+/// \details <b>Details</b>
+///
+/// Getting destructorValue which can decide to print destroy value
+/// 
+/// \return Returns a bool value which is destructorValue
+///
+///
 bool Shape::GetDestructorValue(void) {
 	return destructorValue;
 }

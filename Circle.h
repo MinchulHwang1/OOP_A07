@@ -20,12 +20,12 @@ using namespace std;
 /// \class Circle
 ///
 /// \brief The purpose of This class creates an object that inherited from Shape class, and save radius itself. also showing information of shape.
+/// 
+/// furthermore, this object can be calculated by operator +, *, =, ==
 ///
 ///
 /// \author A <i>Minchul Hwang</i>
-///
-/// 
-/// 
+
 
 class Circle : public Shape {
 	/* ====================================== */
@@ -33,15 +33,15 @@ class Circle : public Shape {
 	/* ====================================== */
 private:
 	float radius;									///< To save radius of circle
-	char colour[kColourSize];
-	char colourCopy[kColourSize];
+	char colour[kColourSize];						///< To save colour of circle
+	char colourCopy[kColourSize];					///< To save copy of colour of circle
 	
 	/* ====================================== */
 	/*              PUBLIC                    */
 	/* ====================================== */
 public:
 	/* -------------- ATTRIBUTES ------------ */
-	Circle();
+	Circle();										///< Default Conetructor
 	Circle(char* colour, float radius);				///< Constructor with 2 parameters.
 	
 	virtual ~Circle();								///< Distructor of object
@@ -57,18 +57,13 @@ public:
 	virtual float Area(void);						///< Virtual function of area - it calculates area of circle
 	virtual float OverallDimension(void);			///< Virtual function of dimension - diagram of circle
 
-	char* GetColour(void);
-	float GetRadius(void)const;
+	char* GetColour(void);							///< Accessor - to get colour of circle
+	float GetRadius(void)const;						///< Accessor - to get the const value of radius of circle
 	
-	Circle operator+(const Circle& addCircle);
-	//const Circle& operator+(const Circle& addCircle);
-	Circle operator*(const Circle& multiCircle);
-	const Circle& operator=(const Circle& insertCircle);
-	bool operator==(const Circle& equalCircle);
-	
+	Circle operator+(const Circle& addCircle);				///< Overload Operator - to overload operator +
+	Circle operator*(const Circle& multiCircle);			///< Overload Operator - to overload operator *
+	const Circle& operator=(const Circle& insertCircle);	///< Overload Operator - to overload operator =
+	bool operator==(const Circle& equalCircle);				///< Overload Operator - to overload operator ==
 	
 };
-
-//Circle operator+(Circle& ad, const Circle& addCircle);
-
 #endif _CIRCLE_H
